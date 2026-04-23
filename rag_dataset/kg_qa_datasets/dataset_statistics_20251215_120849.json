@@ -1,0 +1,48 @@
+{
+  "dataset_summary": {
+    "total_samples": 107,
+    "qa_type_distribution": {
+      "multi_hop": 90,
+      "community_synthesis": 6,
+      "implicit_relationships": 11
+    },
+    "avg_confidence": 1.0,
+    "avg_answer_length": 203.52336448598132,
+    "avg_claims_count": 2.3457943925233646
+  },
+  "quality_metrics": {
+    "confidence_distribution": {
+      "count": 107.0,
+      "mean": 1.0,
+      "std": 0.0,
+      "min": 1.0,
+      "25%": 1.0,
+      "50%": 1.0,
+      "75%": 1.0,
+      "max": 1.0
+    },
+    "answer_length_distribution": {
+      "count": 107.0,
+      "mean": 203.52336448598132,
+      "std": 149.50606385092237,
+      "min": 54.0,
+      "25%": 101.0,
+      "50%": 149.0,
+      "75%": 200.0,
+      "max": 646.0
+    },
+    "claims_count_distribution": {
+      "count": 107.0,
+      "mean": 2.3457943925233646,
+      "std": 0.49721495557126144,
+      "min": 2.0,
+      "25%": 2.0,
+      "50%": 2.0,
+      "75%": 3.0,
+      "max": 4.0
+    }
+  },
+  "files_created": {
+    "note": "The original full dataset export files are omitted from the public snapshot. See rag_dataset/qa_datasets/ and README.md for retained public assets."
+  }
+}

@@ -1,0 +1,177 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+ENV/
+env/
+.venv/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE / local tooling
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.omx/
+CLAUDE.md
+
+# Environment variables
+.env
+.env.local
+.env.production
+.env.*.local
+
+# API Keys and Secrets
+secrets/
+*.key
+*.pem
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Cache directories
+cache/
+.cache/
+*.cache
+
+# Model weights and large files
+*.pkl
+*.pickle
+*.npy
+*.npz
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.ckpt
+
+# Database / vector stores
+*.db
+*.sqlite
+*.sqlite3
+neo4j/
+lancedb/
+*.lance
+
+# Output directories and research bulk artifacts
+kg_gen/inference_result/
+kg_gen/kg_output/
+kg_gen/snu_kg_output/graphrag_input/
+kg_gen/snu_kg_output/graphrag_workspace/
+kg_gen/snu_kg_output/intermediate/
+kg_gen/snu_kg_output/logs/
+kg_gen/graphrag_workspace/input/
+kg_gen/graphrag_workspace/output/
+rag_dataset/processed_texts/
+rag_dataset/sources/arxiv/
+rag_dataset/kg_qa_datasets/causal_chains/
+rag_dataset/kg_qa_datasets/community_synthesis/
+rag_dataset/kg_qa_datasets/cross_context/
+rag_dataset/kg_qa_datasets/generated_ground_truths/
+rag_dataset/kg_qa_datasets/implicit_relationships/
+rag_dataset/kg_qa_datasets/multi_hop/
+rag_dataset/kg_qa_datasets/*.png
+rag_dataset/kg_qa_datasets/*.csv
+rag_dataset/kg_qa_datasets/*.html
+rag_dataset/kg_qa_datasets/korean_agriculture_qa_dataset_*.json
+rag_dataset/kg_qa_datasets/restructured_qa_dataset.json
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+tmp/
+temp/
+
+# OS specific
+Thumbs.db
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+desktop.ini
+
+# Documentation build
+docs/_build/
+docs/.doctrees/
+site/
+
+# Coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Package management
+poetry.lock
+Pipfile.lock
+uv.lock
+
+# Large binary files / documents
+*.doc
+*.docx
+
+# Test outputs
+test_output/
+test_results/
+
+# Experimental notebooks
+*_test.ipynb
+*_experiment.ipynb
+scratch/
+
+# Keep intentionally public research artifacts
+!.gitkeep
+!kg_gen/graphrag_workspace/
+!kg_gen/graphrag_workspace/prompts/
+!kg_gen/graphrag_workspace/settings.yaml
+!kg_gen/snu_kg_output/final/
+!kg_gen/snu_kg_output/final/*.parquet
+!kg_gen/snu_kg_output/snu_kg_config.yaml
+!rag_dataset/qa_datasets/
+!rag_dataset/qa_datasets/text_unit_qa_selected_49.json
+!rag_dataset/qa_datasets/README.md
+!rag_dataset/kg_qa_datasets/qa_types.md
+!rag_dataset/kg_qa_datasets/dataset_statistics_20251215_120849.json
+!rag_dataset/kg_qa_datasets/question_generation_summary.json
+!rag_dataset/sources/rda_url.txt

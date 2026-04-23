@@ -1,0 +1,409 @@
+{
+  "dataset_info": {
+    "name": "Korean Agriculture Text Unit QA Dataset (Sanitized Sample)",
+    "version": "1.0",
+    "created_at": "2025-12-17 03:02:12",
+    "total_samples": 49,
+    "selection_method": "uniform_interval_from_194_samples",
+    "id_range": "qa_0051 to qa_0100 (with 1 contact-information sample removed)",
+    "sanitized_for_public_release": true,
+    "public_release_note": "Contact-information questions and source-text-heavy full benchmark exports were removed from the public snapshot.",
+    "removed_sample_ids": [
+      "qa_0061"
+    ]
+  },
+  "samples": [
+    {
+      "id": "qa_0051",
+      "question": "이 연구의 주제는 무엇인가요?",
+      "answer": "이 연구는 이상저온 조건이 고추의 생육 및 수량에 미치는 영향을 다루고 있습니다.",
+      "evidence": {
+        "text_unit_id": "d2967b85bfea0d3c2644f4acf2bab33d21a1a8ecf65488b2c61dd0beae14754b184e6179c5e559d88fd80dfb34c0889403b65e219df062cb0f95c0bc26eedaaa"
+      }
+    },
+    {
+      "id": "qa_0052",
+      "question": "20℃에서 자란 식물의 생육에 미치는 영향은 무엇인가요?",
+      "answer": "20℃에서 자란 식물은 신선 중량과 건조 중량이 감소하고, 고추 열매 수확량이 25℃와 비교하여 11% 감소했습니다.",
+      "evidence": {
+        "text_unit_id": "fb618711c6febb1463ed77e41d738ee89ba0439afbd7c55ffb7c7ec7a3bcf27c9030c8093ea427c7593564fc4d990e4df64aa58dad9efadfe7c4bcc0c1115ea6"
+      }
+    },
+    {
+      "id": "qa_0053",
+      "question": "어떤 기법을 사용하여 엽면적을 측정하였나요?",
+      "answer": "엽면적 측정은 엽면적 측정기를 이용하여 수행하였습니다.",
+      "evidence": {
+        "text_unit_id": "d5505486e7562ec56348a859c71c558f0d2e3ddd3ae3c0682c11da3c49ce0d89bd9547b6e8c437faee62956e1e0ccf324dd6ae6a688cbdf2ab202d6567e9c0fe"
+      }
+    },
+    {
+      "id": "qa_0054",
+      "question": "25℃에서 생육된 식물체의 경직경은 얼마인가요?",
+      "answer": "25℃에서 생육된 식물체의 경직경은 7.12 mm입니다.",
+      "evidence": {
+        "text_unit_id": "205e5e2695a6588ca0a9e28660fcabbfef86b39504f56b7357aae76f9b73a92b451e76abdde4af8418b7f9b4c59d35b39ef208e3e81c2c46217dbf5d9427f1ea"
+      }
+    },
+    {
+      "id": "qa_0055",
+      "question": "표 3은 무엇을 보여주고 있나요?",
+      "answer": "표 3은 고추 씨앗의 신선 및 건조 중량 변화에 대한 데이터를 보여줍니다.",
+      "evidence": {
+        "text_unit_id": "1e7eb82ae8533a3ef11379e277acf334ce9d06db91cbd8b8ea29362ccd4af0dddf04bf8eedc99e88e12327aa7e6b1ad932e38cc5c423dc74dd0180f1c83b4483"
+      }
+    },
+    {
+      "id": "qa_0056",
+      "question": "고추의 생육온도에 따라 낙화율은 어떻게 달라지는가?",
+      "answer": "생육온도인 25℃에서는 낙화율이 27.2%였으나, 22.5℃에서는 35.2%, 20℃에서는 41.0%로 증가한다.",
+      "evidence": {
+        "text_unit_id": "2635294bbed35b6a1a16b772053909cc6954a356af2c6ed949b5321a595e96855ca7e43e3e2017923761fbbeb9d6c248441cc4a15ae2b09cb7611622bd2de461"
+      }
+    },
+    {
+      "id": "qa_0057",
+      "question": "고추에서 이상저온에 따른 피해를 최소화하기 위해 어떤 화학적 방법이 모색되었나요?",
+      "answer": "아미노산제인 글루타민(Glutamine)을 사용하여 고추의 피해를 최소화하기 위한 화학적 방법이 모색되었습니다.",
+      "evidence": {
+        "text_unit_id": "db789ee30da1af5ea2312cfab290ec30a67605f73bab434575b7b402a5fe9a15c0cda66338f31b07d058621930b5832acdc56f1edebd5bc63fd88a4abc9f7b0e"
+      }
+    },
+    {
+      "id": "qa_0058",
+      "question": "25℃에서의 낙화율은 얼마였나요?",
+      "answer": "25℃에서는 낙화율이 27.2%였습니다.",
+      "evidence": {
+        "text_unit_id": "2fd96b1f2c05968bd8886a4d6182cb60cf068b65d19a4101032de1ee2a77fd9a1e5495c825874ede29757b0da043c8597a3e9c3596f30126302ac24b360b3472"
+      }
+    },
+    {
+      "id": "qa_0059",
+      "question": "이 텍스트에서 다루고 있는 주제는 무엇인가요?",
+      "answer": "이 텍스트는 지중해형 생태계와 기후 변화가 농업에 미치는 영향에 대해 다루고 있습니다.",
+      "evidence": {
+        "text_unit_id": "adbf9105e7f4cdcfd69d5c39fecb177eca8af1d9996b01295647f52273d036801772a1b917a27505fb3e5d7afb6b8c7d503639b79e689ff54d930f6d3a6b415b"
+      }
+    },
+    {
+      "id": "qa_0060",
+      "question": "시험구 배치 방법은 무엇인가요?",
+      "answer": "시험구 배치는 완전임의배치로 3반복으로 진행됩니다.",
+      "evidence": {
+        "text_unit_id": "1111b7140751910e441b46abb3e44a43e44e19b0354aea16fdb09da46755c98932f40cb932abae259bcef0c2c7d18d6606fd53926933c9304079e13a74b673f6"
+      }
+    },
+    {
+      "id": "qa_0062",
+      "question": "7월의 기온은 어떻게 되었나요?",
+      "answer": "7월의 낮 기온은 30°C를 초과하였고, 밤 기온은 21°C를 넘었습니다.",
+      "evidence": {
+        "text_unit_id": "85d884ad5762969f0c63c44dea70e20880b7037d425647bfc636048938e8db95b6c58842e913eb6c25047da27da06685d99543be7551af20f16c5a608a278726"
+      }
+    },
+    {
+      "id": "qa_0063",
+      "question": "2020년 국내 파프리카 총수출량은 얼마였나요?",
+      "answer": "2020년 국내 파프리카 총수출량은 30.3천 MT였습니다.",
+      "evidence": {
+        "text_unit_id": "6fde8773121907a6f7e3b4ca9aa03f1249c03ceef9d5406fa362e5d9b1e07b5586519a174ebd855b11eca2a48810c70737662297330a58c2a17cda40cceacd9e"
+      }
+    },
+    {
+      "id": "qa_0064",
+      "question": "여름철 온실 내부 환경에서 어떤 문제들이 발생하나요?",
+      "answer": "여름철 온실 내부 환경에서는 장마와 잦은 강우로 인해 일조량이 낮아지고, 온도가 30°C 이상으로 지속되어 작물의 광합성량 부족, 낙화 또는 착과 불량, 과실 비대 발육 미숙 등의 문제가 발생합니다.",
+      "evidence": {
+        "text_unit_id": "7280aefeb0bf3f917ddf0e8d053589a93923873b73fd066e1305d2ccf0003af6335af9c61f062a94d07f18b0aca4c32813d54a1f79f8ff7baabf9f42603989b5"
+      }
+    },
+    {
+      "id": "qa_0065",
+      "question": "Kim et al.(2021)은 반 밀폐형 온실의 하루 평균 온도가 일반 플라스틱 온실보다 얼마나 낮다고 발표하였나요?",
+      "answer": "약 6°C 낮다고 발표하였습니다.",
+      "evidence": {
+        "text_unit_id": "030fdaa3d676b4503adffb840abd661d8ab7e3b76e85897f9e5dbc09114b948e20554f5ee82850dc6145ebf9501adf1491f39cfa64e76e0f3a42d024bc3e41e9"
+      }
+    },
+    {
+      "id": "qa_0066",
+      "question": "적색계 파프리카의 재배에서 정식일은 언제였나요?",
+      "answer": "F는 2021년 2월 1일에 정식하였고, Ch는 2021년 3월 14일에 정식하였습니다.",
+      "evidence": {
+        "text_unit_id": "a707cd884c098514bc0000952c4176ea3ff3b250bb6cb6b607979c31048ded7ff82fb9e005381ef2c99335f697a27ae6b560641f9f6888d3910a009ab40ea096"
+      }
+    },
+    {
+      "id": "qa_0067",
+      "question": "여름 파프리카 재배에서 첫 번째 꽃이 피는 날짜는 언제인가요?",
+      "answer": "첫 번째 꽃이 피는 날짜는 3월 4일입니다.",
+      "evidence": {
+        "text_unit_id": "7cb48023f4ae605330acceb4ff5dd57327b93cfc9da31bd18e74722f2601db461a1d6d8ecae817ee3671f7cd54b32329496761d238a3f80d60785cd06de1e7f9"
+      }
+    },
+    {
+      "id": "qa_0068",
+      "question": "분석에 사용된 데이터는 어떤 기간에 해당하나요?",
+      "answer": "데이터는 F의 경우 2021년 3월 4일부터 11월 13일까지, 그리고 다른 F의 경우 2021년 3월 31일부터 11월 11일까지의 데이터를 사용하였습니다.",
+      "evidence": {
+        "text_unit_id": "3055d940e8719a5a938b62e78cbd4b70894e94a2954bf9eac32314e434e76c4d6270ee2b33e8cf27df09d2e20b4b86323a43cf10a36463cd96eca71c5d5673c4"
+      }
+    },
+    {
+      "id": "qa_0069",
+      "question": "회귀분석에서 어떤 변수를 사용하여 수확된 과중을 설명하였나요?",
+      "answer": "회귀분석에서는 주간온도, 야간온도, GDD, 일사량 등의 모든 요소를 포함하여 수확된 과중을 설명하기 위해 '입력'을 사용하였습니다.",
+      "evidence": {
+        "text_unit_id": "a5c1d0bbd27606fce222a0c5eb239ee61c38c7e9a79674dd3ce8f0cb27ee3b654b1e6f13b6d9ef027899217b59de982f24189d054252505ad594e7cbc8acbfef"
+      }
+    },
+    {
+      "id": "qa_0070",
+      "question": "8월의 일사량 변화는 어떤 경향을 보이나요?",
+      "answer": "8월은 일사량이 급격하게 떨어지는 경향을 보입니다.",
+      "evidence": {
+        "text_unit_id": "a0ead6dfdb4f831db4019679ac87eb19ea6b42e338912b316da21a57572719bdecd35ab7c92088e850ddb2bbce0d44c3c7c6e116e5d9c8b9d96297ea4b4a627b"
+      }
+    },
+    {
+      "id": "qa_0071",
+      "question": "파프리카 재배에서 첫 착과를 시작하는 최소 광 요구량은 얼마인가요?",
+      "answer": "첫 착과를 시작하는 파프리카의 최소 광 요구량은 2.3MJ·m-2·d-1입니다.",
+      "evidence": {
+        "text_unit_id": "0db51ee8d35d63157a3242b84c769ccb197a68da90d857cdcee8d9e874287079bfda6bb5f7d1bb6579ba437315edf9c7ed14c7d6cc13d7dbd1767d59943f2fd6"
+      }
+    },
+    {
+      "id": "qa_0072",
+      "question": "여름 파프리카 재배에서 주간 온도 적정 범위는 어떻게 유지되었나요?",
+      "answer": "F는 대체로 주간 온도 적정 범위를 잘 유지하였으나, 주간 28°C 이상, 야간 21°C 이상으로 적정 범위를 벗어나는 현상이 관찰되었습니다.",
+      "evidence": {
+        "text_unit_id": "208379753df22adc745e663bdd23cdd705ac257ddbbaa2c85c3a304dfff231a08b32952d970a0effc3367cc059ae157ef879c5c7de9dd75c04ccdb1d84f1fe05"
+      }
+    },
+    {
+      "id": "qa_0073",
+      "question": "프리카 생육 조사에서 F의 초장은 얼마였나요?",
+      "answer": "F의 초장은 314.8cm였습니다.",
+      "evidence": {
+        "text_unit_id": "9766b976d40f27a16e189126dd31370b114080d56835c2818fe32e7f82ff45137f75fb200c1b2f0d7b27fc0268636737dfd5d0223fcc7fc00aeb36d5be464a8d"
+      }
+    },
+    {
+      "id": "qa_0074",
+      "question": "F의 주간 온도는 F보다 얼마나 높았나요?",
+      "answer": "F의 주간 온도는 F보다 0.8°C 높았습니다.",
+      "evidence": {
+        "text_unit_id": "3147f0134f6d290c385b4dc545aa1ba4796bc9e58d060fd2e5e67dd162bcd7bca70879daf2ef12730ea964e7c7c7fcc39219e6bc67ee10803875a21365cc3dbf"
+      }
+    },
+    {
+      "id": "qa_0075",
+      "question": "여름 파프리카 재배에서 F와 F의 단위 면적당 생산량은 각각 얼마인가요?",
+      "answer": "F와 F의 단위 면적당 생산량은 각각 23.8kg·m-2와 15.3kg·m-2입니다.",
+      "evidence": {
+        "text_unit_id": "ed99a7e2553def8a280f3476629bb188b82d5d5b881af0760cfcc97ab54d8f094a24cfe22bb2cf04e28542f676aa7db74c23981a93c0dfb61cf49da010e1244b"
+      }
+    },
+    {
+      "id": "qa_0076",
+      "question": "F와 Ch의 착과율은 어떤 차이를 보였나요?",
+      "answer": "F의 착과율은 22.9%로 Ch의 절반 수준이었으나, 두 그룹 모두 5그룹의 착과율이 급격히 낮아졌습니다.",
+      "evidence": {
+        "text_unit_id": "5056f732cee4f4bdb1f1f4cb6c5ee6d249ea5350c93472282b74675914e209fb95ab3154243d3b8f42dd7a9f6a60efe27f75f52a0d7c7df7a2bbc12894d29874"
+      }
+    },
+    {
+      "id": "qa_0077",
+      "question": "Rylski와 Spigelman(1982)의 연구에 따르면, 파프리카 재배 시 어떤 야간 온도에서 착화가 유도되나요?",
+      "answer": "18°C의 야간 온도에서 착화가 유도됩니다.",
+      "evidence": {
+        "text_unit_id": "cafa0b88d3fb992676136869e2d24422cf30647858e76a13595148048bef701e4739151bffb3d0d1d7c46e288a1fcb822042172720ccdc4059781db6035b94bf"
+      }
+    },
+    {
+      "id": "qa_0078",
+      "question": "어린 과실이 온도에 민감한 시기는 언제인가요?",
+      "answer": "어린 과실은 개화 후 14일 이내의 시기에 온도에 민감하다고 알려져 있습니다.",
+      "evidence": {
+        "text_unit_id": "7f933ef55697b126ea178e21891659dfe788eea644d143f831d6213a77a87b8e5800bc4759594e6a310ceec98a10fe7c40bd1cb0064d9ef51de93c3a09385297"
+      }
+    },
+    {
+      "id": "qa_0079",
+      "question": "야간 온도 24°C와 18°C에서 각각 얼마나 많은 과실을 수확했나요?",
+      "answer": "야간 온도 24°C에서 6.6개의 과실을 수확했지만, 18°C에서는 12.6개를 수확했습니다.",
+      "evidence": {
+        "text_unit_id": "56479b25c2faeb97b9bfb39a20820ae629bb49cfe90bd15271655c03e0b9f2caecf112fb619828ab2e8213c46114aba48670e645556b03aa3fd4906b6571a364"
+      }
+    },
+    {
+      "id": "qa_0080",
+      "question": "여름철 온실 내부 온도관리에 효과적인 스크린 방식은 무엇인가요?",
+      "answer": "이고 반영구적인 스크린 방식이 여름철 온실 내부 온도관리에 효과적입니다.",
+      "evidence": {
+        "text_unit_id": "36595238fe4efdb4695ecca987dd83f17964bd9862ddec84a6f80b01819f516f4d9828b70f2996e727ddf0b0bff0612e2545adbeb486b882a6d3adbf43567388"
+      }
+    },
+    {
+      "id": "qa_0081",
+      "question": "F는 몇 주 동안 재배되었나요?",
+      "answer": "F는 2줄기 유인으로 35주 동안 재배되었습니다.",
+      "evidence": {
+        "text_unit_id": "ffde6b4d4499171298bb5aa6dd9a43278396f9057574c4555b21425ff73a9261848f2aa57f426f76692db7d0fad9edbf2e934adfc15b7596ad9c67a700f0b847"
+      }
+    },
+    {
+      "id": "qa_0082",
+      "question": "강원도 농업 연구 및 확장 서비스(GARES)에서 제공하는 고추 스마트 농장 빅데이터 구축을 위한 성장 측정 매뉴얼은 언제 발행되었나요?",
+      "answer": "2019년에 발행되었습니다.",
+      "evidence": {
+        "text_unit_id": "260f6d751c96532494519a083aa0d509c98f0458bd71504d19979f380ebcd4f581c2b1eace51545f7626db2c1273d08f7a710e180bb5a504b23d78ccbcd7222e"
+      }
+    },
+    {
+      "id": "qa_0083",
+      "question": "2022년에 발표된 한국의 날씨 정보 포털에 대한 문서는 어디에서 접근할 수 있나요?",
+      "answer": "한국 기상청(KMA)의 날씨 정보 오픈 포털은 https://data.kma.go.kr/climate/rainySeason/selectRainySeasonStdList.do?pgmNo=120에서 접근할 수 있습니다.",
+      "evidence": {
+        "text_unit_id": "b3e92cfac507528402b33f3c427e8f004ec49ea3bddb3da520300ef9e266bd9cb2e71b709c57bef6e610c087f1b4660393bbde2e7e706bb0a9151d7af92ed949"
+      }
+    },
+    {
+      "id": "qa_0084",
+      "question": "2014년에 발표된 연구에서 오이(Cucumis sativus)의 성장에 미치는 영향을 다룬 주제는 무엇인가요?",
+      "answer": "이 연구는 여름철 온실에서 태양 복사에 따른 모바일 차광이 오이(Cucumis sativus)의 성장에 미치는 영향을 다루고 있습니다.",
+      "evidence": {
+        "text_unit_id": "3960a7dbcebea481a7a9d87dce88c0237e78864e3ce02c16fcc435349b36eb64d61ac776ada37199afb5835bd02e94c1fb2c371e6b04c76884f348a626aa7ced"
+      }
+    },
+    {
+      "id": "qa_0085",
+      "question": "풋마름병과 궤양병의 진단 결과는 어땠나요?",
+      "answer": "풋마름병(Ralstonia solanacearum)과 궤양병(Clavibacter michiganensis)은 모두 음성으로 나타났습니다.",
+      "evidence": {
+        "text_unit_id": "97a7bbacd1a90d2cd829a38708ed234285a6f6720178c01d0646d528aad0d74adfecdd9467d08887e53290c3cecb752472fda5c9459d1ebcf74a6082dbb94a2f"
+      }
+    },
+    {
+      "id": "qa_0086",
+      "question": "사진하우스 내부에서 어떤 생육 전경현장 애로사항이 있었나요?",
+      "answer": "잎말림 현상 및 생육 불량, 궤양병과 청고병이 문제로 지적되었습니다.",
+      "evidence": {
+        "text_unit_id": "5682ff8897bba8844ea81a88303356882a718a8b9d6711634604ba15ab95fb0efde6aa6e3bd37e3e16d7bd58991acd2a880fdd58b47aefc293f2e73b5c5a07e7"
+      }
+    },
+    {
+      "id": "qa_0087",
+      "question": "토마토 잎곰팡이병에 대한 방제 효과를 연구한 연구자는 누구인가요?",
+      "answer": "연구자는 장태현입니다.",
+      "evidence": {
+        "text_unit_id": "ccf99b4c0e7cc93986ac7ae72a20c35c4eecb3b42160f3d04a89bab97aa4dc9b800db95ec4d5588a8845b2c7a699b1e676a7c4dbdfd6649c02747687db4ec1b5"
+      }
+    },
+    {
+      "id": "qa_0088",
+      "question": "키토산이 토마토 잎곰팡이병 방제에 어떻게 이용될 수 있는가?",
+      "answer": "키토산은 여러 선행 연구를 통해 토마토 잎곰팡이병 방제에 이용 가능하다는 것이 확인되었다.",
+      "evidence": {
+        "text_unit_id": "c1bc835c469ab5d9e01e00a5f3488d40b8178c11ab0c7c608f093fd0f1147cb39ee289ca42ac879f2f82a0dbddac2931f15a23ebcba468b4a5f699e59a1a03a0"
+      }
+    },
+    {
+      "id": "qa_0089",
+      "question": "도태랑에서 어떤 회사의 육묘를 구입하였나요?",
+      "answer": "도태랑은 푸른 육묘회사의 육묘를 구입하였습니다.",
+      "evidence": {
+        "text_unit_id": "9386622d5df1333d2e8771727c40bbc3ffd4813bfa3a8cf7e4fcae4545f183c70b23dffd0b03934d3cd6e3f6d154174961a675c91bad555bb210c6ca5c68380c"
+      }
+    },
+    {
+      "id": "qa_0090",
+      "question": "잎곰팡이병 방제 효과는 어떤 처리구에서 가장 낮았나요?",
+      "answer": "모든 처리구에서 발병률이 낮았으며, 무처리구와 비교했을 때 효과가 있었습니다.",
+      "evidence": {
+        "text_unit_id": "74e21486e6232a35fca84e24e456cb7749286fa770f22032db902c699d19d1f6d9698cd918662db8603f8d8efe222024ffc1a05b823c7540c23ffd1809541dfd"
+      }
+    },
+    {
+      "id": "qa_0091",
+      "question": "SH-1과 SH-2 처리구는 병 발생에 대해 어떤 효과를 보였나요?",
+      "answer": "SH-1과 SH-2 처리구는 살포 후 21일까지 무처리구 대비 병 발생이 크게 감소되었지만, 14일 이후로는 발병률이 증가하는 경향을 보였습니다.",
+      "evidence": {
+        "text_unit_id": "89bd8fe5124bd20d3385646d6592f372e2d3cbb429a4d4622668bf5a913437f86c2ae1f9be4af31919bb9beefab180180eb387bae67eecc82bc55e8d7b64f238"
+      }
+    },
+    {
+      "id": "qa_0092",
+      "question": "키토산 제제의 방제 효과는 어떤 작용을 통해 이루어지나요?",
+      "answer": "키토산은 개량효과, 식물생장 촉진작용, 자기방어 기작 등 다양한 역할을 통해 방제 효과를 나타낸다고 보고되었습니다.",
+      "evidence": {
+        "text_unit_id": "d036947427a1be56349b560404a84e54aa057165c2d52cf86fb96a858ef76970bb13e359343032c74f38a061c7399fa6f571694a2c302260c058ab5d2a01b85a"
+      }
+    },
+    {
+      "id": "qa_0093",
+      "question": "키토산이 식물에 미치는 효과는 무엇인가요?",
+      "answer": "키토산은 병 방제 효과가 있으며, 식물의 chitinases를 자극하고 pisatin을 유도하는 등 식물 병원균에 대한 방어 기작을 강화하는 것으로 알려져 있습니다.",
+      "evidence": {
+        "text_unit_id": "4a6a8e04279bab3068f1bc92f3433afd106fd63a32eb0f32133c48dc69f361c420c0ac41c20e8fdde3008c941a99caeea7dad2bc549bf1e0665543b28baa4370"
+      }
+    },
+    {
+      "id": "qa_0094",
+      "question": "키토산 처리에 따른 토마토의 줄기 지름은 얼마였나요?",
+      "answer": "SH-1-200 처리에서 줄기 지름은 4.1±0.34mm였고, SH-1-100 처리에서는 4.5±0.68mm였습니다.",
+      "evidence": {
+        "text_unit_id": "5cce40def75567d4e4184931cb8379d7fcb712a356299479ea259849baf36049f942474f7cf88640f291305c20399a4764f2e471852ee91f35e692f6a76fd369"
+      }
+    },
+    {
+      "id": "qa_0095",
+      "question": "키토산의 사용 농도에 따른 병 방제 효과는 어떤 차이가 있나요?",
+      "answer": "키토산은 사용 농도에 따라서 병 방제 효과에 차이가 있으며, 100배액(10ml/l)에서 효과가 나타났고, 200배(5ml/l)에서는 상대적으로 효과가 떨어지는 것으로 보입니다.",
+      "evidence": {
+        "text_unit_id": "64588b0359b3432aaaa96bf02eb8ae6bdd640ae02ae5148a54b81f6c7b762620c741e829f05093d3fabd387209371ec1990db7d5443c62880f17ee29f7f1d056"
+      }
+    },
+    {
+      "id": "qa_0096",
+      "question": "키토산의 사용농도가 높을수록 어떤 효과가 증가하나요?",
+      "answer": "키토산의 사용농도가 높을수록 병 방제 효과가 증가합니다.",
+      "evidence": {
+        "text_unit_id": "c77421b90c5b665f0ab0ae56e86aa2e66aa7d7838f3f713093596624e0c1ec1689c6b0e0b86965d4334e351bf899dbce038965c02a1e4d25ed7cef45e76b731f"
+      }
+    },
+    {
+      "id": "qa_0097",
+      "question": "키토산 제제가 어떤 효과를 가지고 있나요?",
+      "answer": "키토산 제제는 식물병의 방제 효과가 있으며, 특히 후수확 병원균에 대한 항진균 활성을 가지고 있습니다.",
+      "evidence": {
+        "text_unit_id": "54cb2d97b6866a2838c0da7c05ac69d45821ca5e8eac517008945e3d618137c3eb821776428fef7b7cc6324330fc2f668c214a242ad5d8434ef3ccd6e7d08d3e"
+      }
+    },
+    {
+      "id": "qa_0098",
+      "question": "어떤 물질이 Fusarium solani에 대해 최대한 항진균 효과를 나타내는가?",
+      "answer": "부분적으로 N-아세틸화된 키토산 올리고머가 Fusarium solani에 대해 최대한 항진균 효과를 나타낸다.",
+      "evidence": {
+        "text_unit_id": "9612fc06baedd4461a997abdc59af5a857145d72dcc5f68643147f6e7af6691b5e09fb40ae17c0f915901d9996a7b23cee2f387a584c25a5bfb7f4de0c780bbb"
+      }
+    },
+    {
+      "id": "qa_0099",
+      "question": "병충해 유무의 중요도 우선순위는 몇 위인가요?",
+      "answer": "병충해 유무의 중요도 우선순위는 1위입니다.",
+      "evidence": {
+        "text_unit_id": "ee7d9a1530290be392e0c5ecec53eea9cb0452595a162e1b6091630deffb25f1de01a8f61ce800d6d8d02d9531bfd15f772e36262e1bee9e3a40b23ace310332"
+      }
+    },
+    {
+      "id": "qa_0100",
+      "question": "토마토 좋은 묘를 판단할 때 가장 중요하게 고려되는 항목은 무엇인가요?",
+      "answer": "가장 중요하게 고려되는 항목은 병충해 유무입니다.",
+      "evidence": {
+        "text_unit_id": "60aa881d7456a5212fe55434c9f6d36870de574ca72bf19aa07e51f3891a5dff5bda5b07f743a62546badb5248bcdc0ccae86a46a1c0c40fa989791b0e153a31"
+      }
+    }
+  ]
+}

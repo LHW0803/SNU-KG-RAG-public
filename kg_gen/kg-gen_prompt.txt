@@ -1,0 +1,283 @@
+Entities merging prompt
+
+"""
+    STRICT entity merging criteria - ONLY return entities that SHOULD BE MERGED.
+    
+    YOU MUST ONLY RETURN ENTITIES IN THE OUTPUT LIST IF THEY SHOULD BE MERGED WITH THE ITEM.
+    Do not include entities that are similar but should remain separate.
+
+    MERGE ONLY IF entities are EXACTLY the same concept with:
+    1. Identical meaning and scope (same entity referring to same real-world object)
+    2. Only language differences (Korean ↔ English) or minor spelling variations
+    3. Same entity type and domain context
+    
+    DO NOT MERGE (DO NOT INCLUDE IN OUTPUT) if entities have:
+    - Different meanings or scope (even if related)
+    - Different entity types 
+    - Different specificity levels (general vs specific)
+    - Different roles or functions
+    - Any semantic ambiguity
+    - Hierarchical relationships (parent-child concepts)
+    - Domain-specific terminology that must be preserved
+    - Korean agricultural varieties that have specific meaning
+    
+    IMPORTANT: When in doubt, DO NOT include in the merge list.
+    The output 'merge_candidates' should ONLY contain entities that definitely should be merged.
+    
+    Examples of VALID merges:
+    - "토마토" ↔ "Tomato" (same crop, language difference)
+    - "CMV" ↔ "Cucumber Mosaic Virus" (acronym vs full name)
+    - "과인산석회" ↔ "과린산석회" (spelling variation)
+    - "병해충방제" ↔ "병해충 방제" (띄어쓰기 차이)
+    - "토마토병해충" ↔ "토마토 병해충" (복합어 띄어쓰기)  
+    - "토마토의 병해충" ↔ "토마토 병해충" (조사 생략)
+    - "EC" ↔ "전기전도도" (약어와 풀네임)
+    - "pH" ↔ "산도" (영문 약어와 한글)
+    - "CMV" ↔ "오이모자이크바이러스" (바이러스 약어)
+    - "TSWV" ↔ "토마토반점위조바이러스" (바이러스 약어)
+    - "병해충" ↔ "병충해" (단어 순서 차이)
+    - "시설재배" ↔ "시설 재배" (띄어쓰기)
+    - "TYLCV" ↔ "토마토황화잎말림바이러스" (바이러스 약어)
+    - "K" ↔ "칼륨" (원소 기호와 한글명)
+    - "N" ↔ "질소" (원소 기호와 한글명)
+    - "P" ↔ "인" (원소 기호와 한글명)
+    - "Ca" ↔ "칼슘" (원소 기호와 한글명)
+    - "Mg" ↔ "마그네슘" (원소 기호와 한글명)
+    - "B. cinerea" ↔ "잿빛곰팡이병원균" (학명과 한글명)
+    
+    Examples of INVALID merges (DO NOT MERGE):
+    
+    1. HIERARCHICAL RELATIONSHIPS (Parent-Child):
+    - "작물재배" ↔ "토마토재배" (general cultivation vs specific crop)
+    - "작물재배" ↔ "재배" (specific crop vs general cultivation)
+    - "작물재배" ↔ "딸기재배" (different crop cultivation methods)
+    - "작물재배" ↔ "파프리카재배" (different crop cultivation)
+    - "작물재배" ↔ "오이재배" (different crop cultivation)
+    - "작물재배" ↔ "수박재배" (different crop cultivation)
+    - "생육" ↔ "생육특성" (process vs characteristics)
+    - "생육" ↔ "생육단계" (process vs stages)
+    - "생육" ↔ "생육상태" (process vs status)
+    - "병해충" ↔ "토마토병해충" (general vs crop-specific)
+    - "병해충" ↔ "딸기병해충" (general vs crop-specific)
+    - "재배" ↔ "재배기술" (action vs technique)
+    - "재배" ↔ "재배방법" (action vs method)
+    - "재배" ↔ "재배환경" (action vs environment)
+    - "방제" ↔ "방제기술" (action vs technique)
+    - "방제" ↔ "방제방법" (action vs method)
+    
+    2. KOREAN AGRICULTURAL VARIETIES (품종):
+    - "대추방울토마토" ↔ "방울토마토" (specific Korean variety vs specific English variety)
+    - "대추방울토마토" ↔ "TOMATO" (Korean variety vs general term)
+    - "대추방울토마토" ↔ "CHERRY TOMATO" (Korean variety vs specific English variety)
+    - "흑타리" ↔ "파프리카" (specific variety vs general)
+    - "설향" ↔ "딸기" (Korean strawberry variety 'Seolhyang')
+    - "매향" ↔ "딸기" (Korean variety 'Maehyang')
+    - "금실" ↔ "딸기" (Korean variety 'Geumsil')
+    - "아리향" ↔ "딸기" (Korean variety 'Arihyang')
+    - "죽향" ↔ "딸기" (Korean variety 'Jukhyang')
+    - "킹스베리" ↔ "딸기" (commercial variety name)
+    
+    3. TEMPERATURE/ENVIRONMENTAL CONDITIONS:
+    - "저온" ↔ "온도" (low temperature vs general concept)
+    - "고온" ↔ "온도" (high temperature vs general)
+    - "적온" ↔ "온도" (optimal temperature vs general)
+    - "야간온도" ↔ "온도" (night temperature vs general)
+    - "주간온도" ↔ "온도" (day temperature vs general)
+    - "저온기" ↔ "겨울" (low temp period vs season)
+    - "고온기" ↔ "여름" (high temp period vs season)
+    - "습도" ↔ "상대습도" (humidity vs relative humidity)
+    - "광량" ↔ "광도" (light quantity vs light intensity)
+    - "일사량" ↔ "광량" (solar radiation vs light quantity)
+    
+    4. MEASUREMENTS AND UNITS:
+    - "당도" ↔ "brix" (sweetness concept vs measurement unit)
+    - "당도" ↔ "당함량" (sweetness vs sugar content)
+    - "EC" ↔ "전기전도도 측정" (value vs measurement process)
+    - "pH" ↔ "pH 측정" (value vs measurement process)
+    - "생산량" ↔ "수량" (production amount vs quantity)
+    - "수확량" ↔ "생산량" (harvest amount vs production)
+    - "품질" ↔ "품질평가" (quality vs quality evaluation)
+    - "크기" ↔ "과중" (size vs fruit weight)
+    
+    5. PROCESS vs ATTRIBUTES/RESULTS:
+    - "광합성" ↔ "광합성률" (photosynthesis vs rate)
+    - "증산" ↔ "증산량" (transpiration vs amount)
+    - "호흡" ↔ "호흡률" (respiration vs rate)
+    - "착과" ↔ "착과율" (fruit setting vs setting rate)
+    - "개화" ↔ "개화율" (flowering vs flowering rate)
+    - "발아" ↔ "발아율" (germination vs germination rate)
+    - "생장" ↔ "생장률" (growth vs growth rate)
+    - "흡수" ↔ "흡수량" (absorption vs absorption amount)
+    - "시비" ↔ "시비량" (fertilization vs fertilizer amount)
+    - "관수" ↔ "관수량" (irrigation vs irrigation amount)
+    
+    6. OTHER DOMAIN-SPECIFIC DISTINCTIONS:
+    - "토마토" ↔ "방울토마토" (regular tomato vs cherry tomato)
+    - "병해충방제" ↔ "기술지원" (pest control vs technical support)
+    - "분석실" ↔ "검정실" (analysis lab vs testing lab)
+    - "EC" ↔ "pH" (electrical conductivity vs acidity)
+    - "육묘" ↔ "정식" (seedling vs transplanting)
+    - "영양생장" ↔ "생식생장" (vegetative vs reproductive growth)
+    - "착색" ↔ "숙기" (coloring vs maturity)
+    - "과실" ↔ "열매" (fruit technical vs common term)
+"""
+
+Relationships merging prompt
+
+"""
+    STRICT relation merging criteria - ONLY return relations that SHOULD BE MERGED.
+    
+    YOU MUST ONLY RETURN RELATIONS IN THE OUTPUT LIST IF THEY SHOULD BE MERGED WITH THE ITEM.
+    Do not include relations that are similar but should remain separate.
+                
+    We are merging RELATIONS (edges / predicates), not entities.
+    A "relation" here means a factual connection between two entities:
+    (SUBJECT_ENTITY) --[RELATION_TYPE]--> (OBJECT_ENTITY)
+    
+    ─────────────────────────────────────────────────────────────
+    CRITICAL RULE: Description Matching Requirement
+    ─────────────────────────────────────────────────────────────
+    Two relations can ONLY be merged if their descriptions are:
+    1. Nearly identical in meaning (90%+ semantic overlap)
+    2. Differ only in:
+       - Language (Korean ↔ English translation)
+       - Minor phrasing (e.g., "연구를 수행했다" ↔ "연구했다")
+       - Verb tense (past ↔ present for same fact)
+    
+    DO NOT MERGE if descriptions:
+    - Describe different research focuses or findings
+    - Mention different methods, results, or conclusions
+    - Have different scopes, contexts, or applications
+    - Are about different aspects of the same topic
+    - Contain different specific information (numbers, dates, locations)
+    
+    ─────────────────────────────────────────────────────────────
+    CORE MERGING CRITERIA
+    ─────────────────────────────────────────────────────────────
+    
+    MERGE ONLY IF two relations describe EXACTLY the same real-world fact:
+    1. Same subject entity and same object entity 
+    (after entity-level deduplication has already been applied)
+    2. Same direction (subject → object, not reversed)
+    3. Same underlying meaning and implication
+    4. Nearly identical descriptions (see Critical Rule above)
+    5. Only minor surface differences:
+    - Language differences (Korean ↔ English)
+    - Synonymous or slightly varied phrasing
+    - Minor tense / style changes (e.g., "causes" vs "is the cause of")
+    
+    DO NOT MERGE (DO NOT INCLUDE IN OUTPUT) if there is ANY difference in:
+    - Subject or object (different entities, even if related)
+    - Direction (A→B vs B→A)
+    - Relation type (different verbs / predicates)
+    - Description content (different research, findings, or roles)
+    - Specificity level (general vs. specific)
+    - Strength or modality (e.g., "may cause" vs "always causes")
+    - Polarity (e.g., "increases" vs "decreases")
+    - Temporal or conditional scope (e.g., "in early stage" vs "in late stage")
+    - Any semantic nuance that changes the meaning
+    
+    IMPORTANT: When in doubt, DO NOT include in the merge list.
+    The output 'merge_candidates' should ONLY contain relations that definitely should be merged.
+    
+    
+    ─────────────────────────────────────────────────────────────
+    VALID relation merges (OK TO MERGE)
+    ─────────────────────────────────────────────────────────────
+    Merge only when the relation is clearly the same fact with nearly
+    identical descriptions, expressed with different wording or language.
+    
+    Examples:
+    1) Same disease relationship, same description content:
+    - (토마토) --[감염된다]--> (토마토반점위조바이러스)
+      Description: "토마토는 TSWV에 감염되어 반점 증상을 보인다"
+    - (Tomato) --[is infected by]--> (Tomato spotted wilt virus)
+      Description: "Tomato is infected by TSWV showing spotted symptoms"
+    → Same fact, translated descriptions → MERGE
+    
+    2) Same research relation, minor phrasing difference:
+    - (김철수) --[연구함]--> (토마토 병해충 방제)
+      Description: "김철수는 토마토 병해충 방제 기술을 연구하였다"
+    - (김철수) --[연구]--> (토마토 병해충 방제)
+      Description: "김철수는 토마토 병해충 방제 기술 연구를 수행했다"
+    → Same research activity, minor verb variation → MERGE
+    
+    3) Same technical guidance, spelling variation:
+    - (농업기술센터) --[제공]--> (병해충방제 기술지원)
+      Description: "농업기술센터는 농가에 병해충방제 기술을 지원한다"
+    - (농업기술센터) --[제공]--> (병해충 방제 기술지원)
+      Description: "농업기술센터는 농가에 병해충 방제 기술을 지원한다"
+    → Same service, spacing difference → MERGE
+    
+    
+    ─────────────────────────────────────────────────────────────
+    INVALID relation merges (DO NOT MERGE) 
+    ─────────────────────────────────────────────────────────────
+    DO NOT MERGE if descriptions show different content, even with same entities.
+    
+    1) DIFFERENT RESEARCH FOCUS (Same researcher, different studies):
+    - (키토산) --[연구됨]--> (KENDRA)
+      Description: "Kendra는 키토산의 방어 기작에 대한 연구를 수행하였다"
+    - (키토산) --[연구됨]--> (HADWIGER)
+      Description: "Hadwiger는 키토산의 방제 효과와 뿌리발육 증진 효과를 연구하였다"
+    → Different research focuses in descriptions → DO NOT MERGE
+    
+    2) DIFFERENT FINDINGS (Same topic, different results):
+    - (광량) --[영향을 미침]--> (JAAFAR, 1995)
+      Description: "Jaafar의 연구는 광량이 감소할수록 개화 개수와 과실 개수가 적어진다는 내용을 포함"
+    - (광량) --[영향을 미침]--> (JEEATID ET AL., 2017)
+      Description: "Jeeatid et al.의 연구는 광량과 식물 생산량 간의 관계를 다루고 있습니다"
+    → Different research findings → DO NOT MERGE
+    
+    3) DIFFERENT PERSONNEL ROLES (Same organization, different people):
+    - (고창군) --[담당자]--> (박소민)
+      Description: "박소민은 고창군에서 기술 지원을 담당하는 작성자"
+    - (고창군) --[담당자]--> (이철호)
+      Description: "이철호는 고창군에서 병해충 방제를 담당하는 전문가"
+    → Different personnel and roles → DO NOT MERGE
+    
+    4) DIFFERENT METHODS OR APPLICATIONS:
+    - (칼슘제) --[처리]--> (토마토)
+      Description: "칼슘제를 엽면살포하여 배꼽썩음병을 예방"
+    - (칼슘제) --[처리]--> (토마토)
+      Description: "칼슘제를 토양관주하여 세포벽을 강화"
+    → Different application methods and purposes → DO NOT MERGE
+    
+    5) DIFFERENT TEMPORAL CONTEXT:
+    - (토마토) --[재배됨]--> (여름작형)
+      Description: "6-8월 고온기 재배로 차광과 환기가 중요"
+    - (토마토) --[재배됨]--> (겨울작형)
+      Description: "11-3월 저온기 재배로 보온과 난방이 중요"
+    → Different seasonal contexts and requirements → DO NOT MERGE
+    
+    6) SAME SOURCE, DIFFERENT TARGETS:
+    - (살충제A) --[방제]--> (진딧물)
+      Description: "살충제A는 진딧물 방제에 90% 효과"
+    - (살충제A) --[방제]--> (가루이)
+      Description: "살충제A는 가루이 방제에 70% 효과"
+    → Different pests and efficacy → DO NOT MERGE
+    
+    7) BIDIRECTIONAL CONFUSION:
+    - (연구자A) --[소속]--> (연구기관B)
+      Description: "연구자A는 연구기관B의 선임연구원"
+    - (연구기관B) --[보유]--> (연구자A)
+      Description: "연구기관B는 연구자A를 선임연구원으로 보유"
+    → Different directions and predicates → DO NOT MERGE
+    
+    8) OVERGENERALIZATION OF RESEARCH:
+    - (파프리카) --[연구대상]--> (GOO HW)
+      Description: "Goo HW는 파프리카의 생장과 광합성 특성에 대한 연구를 수행"
+    - (파프리카) --[연구대상]--> (MYUNG)
+      Description: "Myung DJ는 파프리카의 품질과 수확후 관리에 대한 연구를 수행"
+    - (파프리카) --[연구대상]--> (JEON YH)
+      Description: "Jeon YH는 파프리카의 병해충 저항성에 대한 연구를 수행"
+    → Each researcher has different research focus → DO NOT MERGE ANY
+    
+    
+    FINAL RULES:
+    - ONLY merge when descriptions are nearly identical (90%+ overlap)
+    - ALWAYS check description content, not just subject/object matching
+    - When multiple similar relations exist, compare descriptions carefully
+    - If descriptions mention different specifics, DO NOT MERGE
+    - Treat each researcher's work as distinct unless descriptions are identical
+"""

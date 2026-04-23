@@ -1,0 +1,99 @@
+
+-Goal-
+Given a text document that is potentially relevant to this activity and a list of entity types, identify all entities of those types from the text and all relationships among the identified entities.
+
+-Steps-
+1. Identify all entities. For each identified entity, extract the following information:
+- entity_name: Name of the entity, capitalized
+- entity_type: One of the following types: [virus, disease, agricultural practice, agricultural product, organization, chemical compound, research study, location, agricultural equipment, temperature management, fertilizer, pest, crop variety]
+- entity_description: Comprehensive description of the entity's attributes and activities
+Format each entity as ("entity"{tuple_delimiter}<entity_name>{tuple_delimiter}<entity_type>{tuple_delimiter}<entity_description>)
+
+2. From the entities identified in step 1, identify all pairs of (source_entity, target_entity) that are *clearly related* to each other.
+For each pair of related entities, extract the following information:
+- source_entity: name of the source entity, as identified in step 1
+- target_entity: name of the target entity, as identified in step 1
+- relationship_description: explanation as to why you think the source entity and the target entity are related to each other
+- relationship_strength: an integer score between 1 to 10, indicating strength of the relationship between the source entity and target entity
+Format each relationship as ("relationship"{tuple_delimiter}<source_entity>{tuple_delimiter}<target_entity>{tuple_delimiter}<relationship_description>{tuple_delimiter}<relationship_strength>)
+
+3. Return output in Korean as a single list of all the entities and relationships identified in steps 1 and 2. Use **{record_delimiter}** as the list delimiter.
+
+4. If you have to translate into Korean, just translate the descriptions, nothing else!
+
+5. When finished, output {completion_delimiter}.
+
+-Examples-
+######################
+
+Example 1:
+
+entity_types: [virus, disease, agricultural practice, agricultural product, organization, chemical compound, research study, location, agricultural equipment, temperature management, fertilizer, pest, crop variety]
+text:
+�은 온도 조건을 나타내고 있음【병해충 분야】정식(9.30.) 전 육묘 기간(8.30∼9.28) 중 바이러스 감염 진단 결과, CMV(오이모자이크바이러스: 진딧물매개충), TMV(담배모자이크바이러스: 종자, 접촉전염 , 농기계 등) 음성으로 나타남(진단키트)병해충 감염은 아직 나타나지 않았음종합 검토 결과경반층 파쇄와 수단그라스 재배 후 토양에 환원하여 경반층 깊이는 개선되었음(전년도 20∼25cm)토마토 정식 후 토양을 조사함에 따라 밑거름 시비 영향으로 질산이온과 EC 농도는 높은 상태임
+------------------------
+output:
+("entity"{tuple_delimiter}CMV{tuple_delimiter}바이러스{tuple_delimiter}오이모자이크바이러스는 진딧물에 의해 매개되는 바이러스입니다){record_delimiter}
+("entity"{tuple_delimiter}TMV{tuple_delimiter}바이러스{tuple_delimiter}담배모자이크바이러스는 종자, 접촉, 농기계 등을 통해 전염되는 바이러스입니다){record_delimiter}
+("entity"{tuple_delimiter}진딧물{tuple_delimiter}해충{tuple_delimiter}진딧물은 오이모자이크바이러스를 매개하는 해충입니다){record_delimiter}
+("entity"{tuple_delimiter}농기계{tuple_delimiter}농업 장비{tuple_delimiter}농기계는 담배모자이크바이러스의 전염 경로 중 하나입니다){record_delimiter}
+("entity"{tuple_delimiter}경반층 파쇄{tuple_delimiter}농업 관행{tuple_delimiter}경반층 파쇄는 토양의 경반층 깊이를 개선하기 위한 농업 관행입니다){record_delimiter}
+("entity"{tuple_delimiter}수단그라스{tuple_delimiter}작물 품종{tuple_delimiter}수단그라스는 토양 개선을 위해 재배되는 작물입니다){record_delimiter}
+("entity"{tuple_delimiter}토마토{tuple_delimiter}농산물{tuple_delimiter}토마토는 정식 후 토양 조사를 통해 밑거름 시비의 영향을 받는 농산물입니다){record_delimiter}
+("entity"{tuple_delimiter}질산이온{tuple_delimiter}화학 화합물{tuple_delimiter}질산이온은 밑거름 시비의 영향으로 토양 내 농도가 높은 상태입니다){record_delimiter}
+("entity"{tuple_delimiter}EC 농도{tuple_delimiter}화학 화합물{tuple_delimiter}EC 농도는 밑거름 시비의 영향으로 토양 내 농도가 높은 상태입니다){record_delimiter}
+("relationship"{tuple_delimiter}CMV{tuple_delimiter}진딧물{tuple_delimiter}오이모자이크바이러스는 진딧물에 의해 매개됩니다{tuple_delimiter}8){record_delimiter}
+("relationship"{tuple_delimiter}TMV{tuple_delimiter}농기계{tuple_delimiter}담배모자이크바이러스는 농기계를 통해 전염될 수 있습니다{tuple_delimiter}7){record_delimiter}
+("relationship"{tuple_delimiter}경반층 파쇄{tuple_delimiter}수단그라스{tuple_delimiter}경반층 파쇄 후 수단그라스를 재배하여 토양을 개선합니다{tuple_delimiter}9){record_delimiter}
+("relationship"{tuple_delimiter}토마토{tuple_delimiter}질산이온{tuple_delimiter}토마토 정식 후 질산이온 농도가 높은 상태입니다{tuple_delimiter}6){record_delimiter}
+("relationship"{tuple_delimiter}토마토{tuple_delimiter}EC 농도{tuple_delimiter}토마토 정식 후 EC 농도가 높은 상태입니다{tuple_delimiter}6){completion_delimiter}
+#############################
+
+
+Example 2:
+
+entity_types: [virus, disease, agricultural practice, agricultural product, organization, chemical compound, research study, location, agricultural equipment, temperature management, fertilizer, pest, crop variety]
+text:
+��자 팡이병의 발병도는 무발생은 0으로 병반 면적율이 40.1%
+료로 활용하고자 한다. 이상은 4로 0에서 4의 계수로 세분하여 조사하여 발병도
+의 공식(발병도=발병수×계수/4N(조사 엽수)×100)에 의해
+재료 및 방법
+환산하였다. 이병율은 잎곰팡이 이병율=무처리구 이병율
+(%)−처리구 이병율(%)×100/무처리구 이병율(%)로 환산
+키토산 제형 제조 본 시험에 사용한 키토산 제형은 하였다.
+.
+키토산과 키토올리고당을 목초액과 현미 식초를 이용하 토마토 생육효과를 위한 포트시험 토마토(�
+------------------------
+output:
+("entity"{tuple_delimiter}자팡이병{tuple_delimiter}DISEASE{tuple_delimiter}자팡이병은 식물의 잎에 발생하는 곰팡이병으로, 병반 면적율로 발병도를 측정한다)
+{record_delimiter}
+("entity"{tuple_delimiter}키토산{tuple_delimiter}CHEMICAL COMPOUND{tuple_delimiter}키토산은 곰팡이병 방제를 위한 제형 제조에 사용되는 화합물이다)
+{record_delimiter}
+("entity"{tuple_delimiter}키토올리고당{tuple_delimiter}CHEMICAL COMPOUND{tuple_delimiter}키토올리고당은 키토산과 함께 사용되어 식물 생육에 도움을 주는 화합물이다)
+{record_delimiter}
+("entity"{tuple_delimiter}목초액{tuple_delimiter}CHEMICAL COMPOUND{tuple_delimiter}목초액은 키토산 제형 제조에 사용되는 화합물이다)
+{record_delimiter}
+("entity"{tuple_delimiter}현미 식초{tuple_delimiter}CHEMICAL COMPOUND{tuple_delimiter}현미 식초는 키토산 제형 제조에 사용되는 화합물이다)
+{record_delimiter}
+("entity"{tuple_delimiter}토마토{tuple_delimiter}CROP VARIETY{tuple_delimiter}토마토는 키토산 제형의 생육 효과를 시험하기 위한 작물이다)
+{record_delimiter}
+("relationship"{tuple_delimiter}키토산{tuple_delimiter}자팡이병{tuple_delimiter}키토산은 자팡이병 방제를 위한 제형 제조에 사용된다{tuple_delimiter}8)
+{record_delimiter}
+("relationship"{tuple_delimiter}키토산{tuple_delimiter}키토올리고당{tuple_delimiter}키토산과 키토올리고당은 함께 사용되어 식물 생육에 도움을 준다{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}키토산{tuple_delimiter}목초액{tuple_delimiter}목초액은 키토산 제형 제조에 사용된다{tuple_delimiter}6)
+{record_delimiter}
+("relationship"{tuple_delimiter}키토산{tuple_delimiter}현미 식초{tuple_delimiter}현미 식초는 키토산 제형 제조에 사용된다{tuple_delimiter}6)
+{record_delimiter}
+("relationship"{tuple_delimiter}토마토{tuple_delimiter}키토산{tuple_delimiter}토마토는 키토산 제형의 생육 효과를 시험하기 위한 작물이다{tuple_delimiter}7)
+{completion_delimiter}
+#############################
+
+
+
+-Real Data-
+######################
+entity_types: [virus, disease, agricultural practice, agricultural product, organization, chemical compound, research study, location, agricultural equipment, temperature management, fertilizer, pest, crop variety]
+text: {input_text}
+######################
+output:

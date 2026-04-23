@@ -1,0 +1,6 @@
+[submodule "kg_gen/graphrag"]
+	path = kg_gen/graphrag
+	url = https://github.com/microsoft/graphrag.git
+[submodule "kg_gen/kg-gen"]
+	path = kg_gen/kg-gen
+	url = https://github.com/stair-lab/kg-gen.git

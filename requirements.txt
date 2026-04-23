@@ -1,0 +1,78 @@
+# Requires Python 3.10-3.12
+
+# Core Dependencies
+openai>=1.0.0
+litellm>=1.0.0
+tiktoken>=0.5.0
+sentence-transformers>=2.2.0
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+pyarrow>=14.0.0
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+
+# Graph Processing
+networkx>=3.0
+graspologic>=3.0.0
+scikit-learn>=1.3.0
+scipy>=1.10.0
+
+# Vector Database
+lancedb>=0.5.0
+
+# Visualization
+pyvis>=0.3.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.18.0
+
+# NLP and Text Processing
+spacy>=3.7.0
+nltk>=3.8.0
+langdetect>=1.0.9
+
+# Async and Parallel Processing
+aiohttp>=3.9.0
+tqdm>=4.65.0
+
+# Configuration
+pyyaml>=6.0
+python-dotenv>=1.0.0
+
+# Jupyter and Development
+jupyter>=1.0.0
+ipywidgets>=8.0.0
+notebook>=7.0.0
+
+# Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+
+# Utilities
+click>=8.1.0
+rich>=13.0.0
+typer>=0.9.0
+
+# Optional: Neo4j Support
+# neo4j>=5.0.0
+# py2neo>=2021.2.0
+
+# Optional: Azure Support
+# azure-storage-blob>=12.19.0
+# azure-search-documents>=11.4.0
+# azure-identity>=1.15.0
+
+# Development Tools (optional)
+# black>=23.0.0
+# isort>=5.12.0
+# pylint>=3.0.0
+# mypy>=1.7.0
+
+# For GraphRAG specific requirements, see:
+# kg_gen/graphrag/pyproject.toml
+
+# For kg-gen specific requirements, see:
+# kg_gen/kg-gen/pyproject.toml

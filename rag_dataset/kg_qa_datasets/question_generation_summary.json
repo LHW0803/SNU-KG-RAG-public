@@ -1,0 +1,15 @@
+{
+  "total_questions": 609,
+  "qa_type_distribution": {
+    "multi_hop": 214,
+    "community_synthesis": 76,
+    "cross_context": 64,
+    "implicit_relationships": 125,
+    "causal_chains": 130
+  },
+  "difficulty_distribution": {
+    "easy": 145,
+    "hard": 464
+  },
+  "generation_timestamp": "2025-12-15T03:31:22.605064"
+}
