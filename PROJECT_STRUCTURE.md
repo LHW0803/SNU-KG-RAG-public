@@ -30,6 +30,7 @@ GraphRAG / kg-gen / SNU-KG 통합 파이프라인 관련 자산을 담는다.
 - `graphrag/` — Microsoft GraphRAG submodule
 - `kg-gen/` — kg-gen submodule
 - `graphrag_workspace/` — 공개용 설정/프롬프트 sample workspace
+- `graph_artifacts/` — Microsoft GraphRAG baseline과 Clustered-Agri-KG variant의 compact graph artifact
 - `snu_kg_gen_full.ipynb` — 메인 통합 파이프라인 노트북
 - `snu_kg_gen_embedding.ipynb` — 임베딩/클러스터링 분석 노트북
 - `snu_kg_inference.ipynb` — 비교 추론 실험 노트북
@@ -71,7 +72,7 @@ GraphRAG / kg-gen / SNU-KG 통합 파이프라인 관련 자산을 담는다.
 - 연구 문제/방법/결과를 직접 설명하는 문서
 - 핵심 노트북
 - 공개 가능한 설정 파일과 프롬프트
-- 최종 graph artifact
+- baseline/proposed variant 비교가 가능한 graph artifact
 - 최종 QA benchmark
 
 ### 제외하는 것

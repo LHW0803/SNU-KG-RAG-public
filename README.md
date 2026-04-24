@@ -76,6 +76,7 @@ This repository is organized as a **public GitHub snapshot**.
 ### Included intentionally
 - the main notebooks that explain the research flow,
 - GraphRAG / kg-gen settings and prompt templates,
+- public-safe comparative graph artifacts for the Microsoft GraphRAG and Clustered-Agri-KG variants,
 - the final normalized graph outputs in `kg_gen/snu_kg_output/final/`,
 - sanitized sample QA assets in `rag_dataset/qa_datasets/`,
 - public-safe summary statistics and documentation.
@@ -103,6 +104,7 @@ For the detailed keep/remove rules, see [`PUBLIC_ASSET_MANIFEST.md`](PUBLIC_ASSE
 │   ├── graphrag/                     # Microsoft GraphRAG submodule
 │   ├── kg-gen/                       # kg-gen submodule
 │   ├── graphrag_workspace/           # public settings/prompt workspace template
+│   ├── graph_artifacts/              # retained graph outputs for baseline/proposed variants
 │   ├── snu_kg_gen_full.ipynb         # main integrated pipeline notebook
 │   ├── snu_kg_gen_embedding.ipynb    # embedding / clustering analysis notebook
 │   ├── snu_kg_inference.ipynb        # inference and comparison notebook
@@ -193,7 +195,12 @@ NEO4J_PASSWORD=your-password         # optional
 - Path: `kg_gen/snu_kg_output/final/`
 - Purpose: retain the final normalized entity/relation outputs as public research artifacts
 
-### 4. QA benchmark assets
+### 4. Comparative graph artifacts
+- Path: `kg_gen/graph_artifacts/`
+- Purpose: retain compact graph outputs for the Microsoft GraphRAG baseline and the Clustered-Agri-KG variant
+- Note: this directory keeps only `entities.parquet`, `relationships.parquet`, and `stats.json`; source-derived inputs, community reports, LanceDB indexes, cache files, logs, and intermediate merge files remain excluded
+
+### 5. QA benchmark assets
 - Path: `rag_dataset/qa_datasets/`
 - Purpose: retain a sanitized public sample plus documentation explaining how it relates to the thesis benchmark
 
@@ -210,6 +217,7 @@ NEO4J_PASSWORD=your-password         # optional
 - [`PUBLIC_ASSET_MANIFEST.md`](PUBLIC_ASSET_MANIFEST.md): explains what is included vs excluded
 - [`PUBLIC_RELEASE_AUDIT.md`](PUBLIC_RELEASE_AUDIT.md): summarizes the hardening/removal pass and verification notes
 - [`GITHUB_UPLOAD_GUIDE.md`](GITHUB_UPLOAD_GUIDE.md): checklist for maintaining the repo as a public snapshot
+- [`kg_gen/graph_artifacts/README.md`](kg_gen/graph_artifacts/README.md): explains the retained graph artifact variants
 - [`rag_dataset/qa_datasets/README.md`](rag_dataset/qa_datasets/README.md): explains the retained public benchmark scope
 - [`rag_dataset/QA_Generation_Process.md`](rag_dataset/QA_Generation_Process.md): notes on QA generation
 

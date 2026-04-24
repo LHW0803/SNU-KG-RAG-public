@@ -1,0 +1,23 @@
+{
+    "total_runtime": 386.5805916786194,
+    "num_documents": 0,
+    "update_documents": 0,
+    "input_load_time": 0,
+    "workflows": {
+        "extract_covariates": {
+            "overall": 147.5538489818573
+        },
+        "create_communities": {
+            "overall": 0.13001227378845215
+        },
+        "create_final_text_units": {
+            "overall": 0.05027198791503906
+        },
+        "create_community_reports": {
+            "overall": 230.71323919296265
+        },
+        "generate_text_embeddings": {
+            "overall": 8.131327152252197
+        }
+    }
+}

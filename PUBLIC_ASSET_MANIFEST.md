@@ -16,6 +16,7 @@
 | 환경 템플릿 | `.env.example` | secret 없이 설정 형태만 공유 |
 | 핵심 노트북 | `kg_gen/*.ipynb`, `rag_dataset/*.ipynb` | 연구 파이프라인의 실제 진입점 |
 | GraphRAG sample workspace | `kg_gen/graphrag_workspace/` | 설정과 프롬프트 템플릿 설명용 |
+| 비교 graph artifact | `kg_gen/graph_artifacts/` | Microsoft GraphRAG baseline과 Clustered-Agri-KG variant의 compact graph 결과 비교 |
 | 최종 graph 결과 | `kg_gen/snu_kg_output/final/` | 정규화된 최종 결과 보존 |
 | 파이프라인 설정 | `kg_gen/snu_kg_output/snu_kg_config.yaml`, `kg_gen/graphrag_workspace/settings.yaml` | 공개 가능한 설정 표면 유지 |
 | 공개 QA sample | `rag_dataset/qa_datasets/` | sanitized sample benchmark + benchmark 설명 유지 |
